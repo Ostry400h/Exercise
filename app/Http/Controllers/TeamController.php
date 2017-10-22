@@ -82,8 +82,8 @@ class TeamController extends Controller
     public function newUser(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:4|max:40|regex:/^[a-zA-Z0-9,_]*$/',
-            'sure_name' => 'required|min:4|max:40|regex:/^[a-zA-Z0-9,_]*$/',
+            'name' => 'required|min:4|max:40',
+            'sure_name' => 'required|min:4|max:40|',
             'age' => 'integer|nullable',
             'team_id'=> 'integer'
         ]);
@@ -119,7 +119,7 @@ class TeamController extends Controller
     public function addTeam(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'team_name' => 'required|unique:teams,team_name|min:4|max:40|regex:/^[a-zA-Z0-9,_]*$/',
+            'team_name' => 'required|unique:teams,team_name|min:4|max:40',
         ]);
         if ($validator->fails())
         {

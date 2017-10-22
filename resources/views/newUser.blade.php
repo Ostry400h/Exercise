@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group @if ($errors->has('sure_name')) has-error @endif">
                     <label for="sure_name">Sure name:</label>
-                    <input id="sure_name" class="form-control" type="text" name="Sure name" value="{{ Request::old('sure_name') }}" placeholder="Surename">
+                    <input id="sure_name" class="form-control" type="text" name="sure_name" value="{{ Request::old('sure_name') }}" placeholder="Surename">
                     @if ($errors->has('sure_name'))<p class="help-block">{{$errors->first('sure_name')}}</p>@endif
                 </div>
                 <div class="form-group @if ($errors->has('age')) has-error @endif">
