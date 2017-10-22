@@ -90,7 +90,7 @@ class TeamController extends Controller
         if ($validator->fails())
         {
             return Redirect::to('users/new?id='.$request->input('team_id'))
-                                //->with('id',$request->input('team_id'))
+                                ->withInput($request->all())
                                 ->withErrors($validator);
         }
 
@@ -123,7 +123,9 @@ class TeamController extends Controller
         ]);
         if ($validator->fails())
         {
-            return Redirect::to('team/new')->withErrors($validator);
+            return Redirect::to('team/new')
+                                ->withErrors($validator)
+                                ->withInput($request->all());
         }
 
         $team = new Team; 
